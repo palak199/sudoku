@@ -1,7 +1,28 @@
-
+import tkinter as tk
+from tkinter import Entry
+'''
+for cli version
 def show_matrix(matrix):
     for i in matrix:
         print(' '.join(str(i)))
+        '''
+
+#for GUI version
+def show_matrix(matrix):
+    root=tk.Tk()
+    root.title("sudoku solver")
+    canvas=tk.Canvas(root,height=100,width=100)
+    canvas.pack()
+    
+    for i in range(4): #Rows
+        for j in range(4): #Columns
+            b= Entry(canvas, width=10)
+            b.grid(row=i, column=j)
+            b.insert(0, matrix[i][j])
+    root.mainloop()
+        
+
+
         
 def make_matrix(n):
     matrix=[]
@@ -81,7 +102,7 @@ def solver(matrix):
 if __name__=="__main__": 
     test_matrix=make_matrix(4) 
     if solver(test_matrix):
-        print("solution is:")
+        print("solution is:")        
         show_matrix(test_matrix)
     else:
         print("not a valid grid")
