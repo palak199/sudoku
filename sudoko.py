@@ -8,11 +8,11 @@ def make_matrix(n):
     for i in range(n):
         temp=[]
         for j in range(n):
+            print ("add->",i,j,":",end="")
             temp.append(int(input()))
         matrix.append(temp)
     return matrix
     
-nums=[1,2,3,4]
     
 def column(matrix, i):
     return [row[i] for row in matrix]  
@@ -66,7 +66,7 @@ def solver(matrix):
         i,j=is_there
     
     
-    for t in nums:
+    for t in range(1,5):
         sm=sub_matrix(matrix,i,j)
         row_matrix=matrix[i]
         col_matrix=column(matrix,j)                    
@@ -79,18 +79,14 @@ def solver(matrix):
     return False
                     
 if __name__=="__main__": 
-    test_matrix=[[0,0,4,3],[0,0,0,0],[0,0,0,0],[2,3,0,0]]  
+    test_matrix=make_matrix(4) 
     if solver(test_matrix):
+        print("solution is:")
         show_matrix(test_matrix)
-#show_matrix(make_matrix(2))
+    else:
+        print("not a valid grid")
 
 
-        
-    
-   
-
-#print(sub_matrix(test_matrix,3,3))   
-#show_matrix(test_matrix)
 
 
 
