@@ -30,12 +30,14 @@ def callback():
                 if 0<int(t)<10:
                     matrix[i][j]=int(t)
                 else:
-                    exit                         
+                    messagebox.showerror(title="error", message="invalid values")
+                                            
             else:
                 matrix[i][j]=0            
     if solver(matrix):
          result_matrix(matrix)
     else:
+        messagebox.showerror(title="error", message="invalid matrix!")
         exit
         
 #creates the matrix   
